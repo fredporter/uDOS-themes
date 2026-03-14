@@ -1,0 +1,10 @@
+{
+  "theme": "public-sunset",
+  "owner": "udos-themes",
+  "surface": "shell-panel",
+  "tokens": {
+    "accent": "#d95f3f",
+    "background": "#f4ede0",
+    "foreground": "#1f1d1b"
+  }
+}
