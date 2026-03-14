@@ -37,6 +37,7 @@ Themes provide presentation layers on top of Shell and related public surfaces.
 ## Activation
 
 The v2 repo activation path is documented in `docs/activation.md`.
+The `v2.0.1` theme bridge is documented in `docs/v2.0.1-theme-foundation.md`.
 
 Run the current repo validation entrypoint with:
 

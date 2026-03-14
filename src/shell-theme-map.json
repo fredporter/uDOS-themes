@@ -1,0 +1,26 @@
+{
+  "version": "v2.0.1",
+  "surface": "shell",
+  "themes": [
+    {
+      "theme": "public-sunset",
+      "adapter": "panel",
+      "tokens": {
+        "accent": "#d95f3f",
+        "background": "#f4ede0",
+        "foreground": "#1f1d1b",
+        "muted": "#8d7b68"
+      }
+    },
+    {
+      "theme": "public-forest",
+      "adapter": "workspace",
+      "tokens": {
+        "accent": "#3f7d4f",
+        "background": "#f2f0e8",
+        "foreground": "#1c221c",
+        "muted": "#657565"
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "version": "v2.0.1",
+  "surface": "publishing",
+  "themes": [
+    {
+      "theme": "public-sunset-mail",
+      "adapter": "email-safe",
+      "tokens": {
+        "accent": "#b84a2c",
+        "background": "#fff8ef",
+        "foreground": "#2b241f",
+        "border": "#ddc4a6"
+      }
+    }
+  ]
+}
