@@ -3,6 +3,16 @@
   "surface": "publishing",
   "themes": [
     {
+      "theme": "public-sunset-prose",
+      "adapter": "prose-web",
+      "tokens": {
+        "accent": "#b84a2c",
+        "background": "#fff8ef",
+        "foreground": "#2b241f",
+        "border": "#ddc4a6"
+      }
+    },
+    {
       "theme": "public-sunset-mail",
       "adapter": "email-safe",
       "tokens": {

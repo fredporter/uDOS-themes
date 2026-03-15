@@ -5,6 +5,9 @@
 - public themes
 - visual tokens
 - reusable asset packs
+- prose presets
+- publishing and email-safe theme adapters
+- gameplay skin theme adapters
 
 ## Does Not Own
 
