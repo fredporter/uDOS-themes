@@ -104,7 +104,7 @@ export type ThinUiFontDefinition = {
 export type ThinUiThemeDefinition = {
   id: string;
   label: string;
-  family: "c64" | "safe" | "custom";
+  family: "c64" | "nes" | "teletext" | "safe" | "custom";
   description: string;
   defaultFontId: string;
   defaultLoaderId: string;
