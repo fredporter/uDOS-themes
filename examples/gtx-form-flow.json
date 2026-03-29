@@ -1,0 +1,21 @@
+{
+  "id": "setup-story",
+  "adapter": "forms-gtx-step",
+  "steps": [
+    {
+      "id": "runtime-name",
+      "type": "question",
+      "prompt": "Name this runtime."
+    },
+    {
+      "id": "network-mode",
+      "type": "choice-grid",
+      "prompt": "Choose network mode."
+    },
+    {
+      "id": "vault-source",
+      "type": "input-field",
+      "prompt": "Where should the vault live?"
+    }
+  ]
+}

@@ -1,25 +1,25 @@
 {
-  "version": "v2.0.1",
+  "version": "v2.2.1",
   "surface": "publishing",
   "themes": [
     {
-      "theme": "public-sunset-prose",
-      "adapter": "prose-web",
+      "theme": "publish-prose-default",
+      "adapter": "publish-tailwind-prose",
       "tokens": {
-        "accent": "#b84a2c",
-        "background": "#fff8ef",
-        "foreground": "#2b241f",
-        "border": "#ddc4a6"
+        "accent": "#1d5c63",
+        "background": "#fffdf8",
+        "foreground": "#233031",
+        "border": "#c8d3d1"
       }
     },
     {
-      "theme": "public-sunset-mail",
+      "theme": "publish-email-safe",
       "adapter": "email-safe",
       "tokens": {
-        "accent": "#b84a2c",
-        "background": "#fff8ef",
-        "foreground": "#2b241f",
-        "border": "#ddc4a6"
+        "accent": "#1d5c63",
+        "background": "#fffdf8",
+        "foreground": "#233031",
+        "border": "#c8d3d1"
       }
     }
   ]

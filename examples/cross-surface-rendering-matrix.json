@@ -1,0 +1,19 @@
+{
+  "version": "v2.2.1",
+  "required_primitives": [
+    "button",
+    "loader",
+    "form-step",
+    "panel",
+    "nav",
+    "progress"
+  ],
+  "surfaces": [
+    "browser",
+    "thinui",
+    "tui",
+    "workflow",
+    "publish",
+    "forms"
+  ]
+}

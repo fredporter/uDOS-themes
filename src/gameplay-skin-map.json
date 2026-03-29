@@ -1,5 +1,5 @@
 {
-  "version": "v2.0.3",
+  "version": "v2.2.1",
   "owner": "uDOS-themes",
   "surface": "gameplay-skin",
   "skins": [
@@ -21,6 +21,17 @@
       "supported_lenses": [
         "dungeon",
         "adventure"
+      ],
+      "overlay_mode": "slot-plus-css"
+    },
+    {
+      "skin_id": "sonic-boot",
+      "theme_adapter": "thinui-loader",
+      "default_prose_preset": "prose-tailwind-story",
+      "supported_lenses": [
+        "deployment",
+        "recovery",
+        "boot"
       ],
       "overlay_mode": "slot-plus-css"
     }

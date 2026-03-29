@@ -1,0 +1,26 @@
+export function createGtxFormPrototype() {
+  return {
+    id: "runtime-setup-story",
+    title: "Runtime Setup Story",
+    steps: [
+      {
+        id: "runtime-name",
+        type: "input-field",
+        prompt: "Name this runtime.",
+        placeholder: "uDOS command centre",
+      },
+      {
+        id: "network-mode",
+        type: "choice-grid",
+        prompt: "Choose the network mode.",
+        choices: ["local-first", "lan-shared", "offline-safe"],
+      },
+      {
+        id: "vault-root",
+        type: "input-field",
+        prompt: "Where should the vault live?",
+        placeholder: "~/.udos/vault",
+      },
+    ],
+  };
+}
