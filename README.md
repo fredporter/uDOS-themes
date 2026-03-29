@@ -2,13 +2,16 @@
 
 ## Purpose
 
-Public theme packs, token sets, and shell-facing visual assets for the uDOS family.
+Public cross-surface themes, token sets, adapters, skins, and visual contracts
+for the uDOS family.
 
 ## Ownership
 
 - themes and skins
 - design tokens
-- reusable shell presentation assets
+- reusable cross-surface presentation assets
+- component primitives
+- surface adapters for browser, ThinUI, TUI, workflow, publish, and forms
 - teachable styling examples
 
 ## Non-Goals
@@ -16,10 +19,12 @@ Public theme packs, token sets, and shell-facing visual assets for the uDOS fami
 - runtime semantics
 - provider transport
 - private product branding ownership
+- direct consumption of external style libraries without an adapter boundary
 
 ## Spine
 
 - `src/`
+- `registry/`
 - `docs/`
 - `tests/`
 - `scripts/`
@@ -28,19 +33,23 @@ Public theme packs, token sets, and shell-facing visual assets for the uDOS fami
 
 ## Local Development
 
-Keep themes modular and portable across public repos.
+Keep themes modular, portable, and render-compatible across browser, ThinUI,
+TUI, workflow, publish, and form surfaces.
 
 ## Family Relation
 
-Themes provide presentation layers on top of Shell and related public surfaces.
+Themes provide the visual contract layer on top of the runtime family. Adapters
+translate those contracts into renderable output for each surface.
 
 ## Activation
 
-The v2 repo activation path is documented in `docs/activation.md`.
-The `v2.0.1` theme bridge is documented in `docs/v2.0.1-theme-foundation.md`.
+The repo activation path is documented in `docs/activation.md`.
+The theme foundation is documented in `docs/v2.0.1-theme-foundation.md`.
+The current integrated design system reference is documented in
+`docs/v2.2.1-integrated-design-system.md`.
 
 Run the current repo validation entrypoint with:
 
 ```bash
-scripts/run-theme-checks.sh
+bash scripts/run-theme-checks.sh
 ```

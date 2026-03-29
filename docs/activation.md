@@ -1,17 +1,6 @@
 # uDOS-themes Activation
 
-## Purpose
-
-This document marks the first active implementation tranche for
-`uDOS-themes`.
-
-The activation goal is to make public theme assets teachable, checkable, and
-ready for implementation without broadening ownership beyond:
-
-- public themes and skins
-- design token sets
-- reusable visual asset packs
-- lightweight theme contract validation for this repo
+Themes are active as the family visual contract lane.
 
 ## Activated Surfaces
 
@@ -21,25 +10,18 @@ ready for implementation without broadening ownership beyond:
 - `config/` as the checked-in theme config lane
 - `examples/basic-theme.json` as the smallest theme contract example
 
-## Current Validation Contract
+## Validation Contract
 
 Run:
 
 ```bash
-scripts/run-theme-checks.sh
+bash scripts/run-theme-checks.sh
 ```
 
-This command:
+This path verifies the required repo surfaces and checks the sample theme
+contract.
 
-- verifies the required repo entry surfaces exist
-- checks that the sample theme contract is structurally valid
-- rejects private local-root path leakage in tracked repo docs and scripts
+## Boundary Rule
 
-## Boundaries
-
-This activation does not move ownership into `uDOS-themes` for:
-
-- shell interaction behavior
-- runtime semantics
-- private product branding
-- provider or transport ownership
+Themes do not own shell interaction behavior, runtime semantics, private
+product branding, or provider and transport ownership.
