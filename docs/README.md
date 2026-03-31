@@ -25,6 +25,11 @@ Use `/wiki` for beginner-friendly learning units and quick practical guides.
 - `v2.2.1-integrated-design-system.md`
 - `theme-upstream-index.md` (third-party repos, demos, fork targets, teletext)
 - `theme-fork-rollout.md` (fork → submodule → adapter checklist)
+- `display-modes.md` — surface vocabulary (Workspace 06)
+- `theme-token-standard.md` — token schema and consumers
+- `step-form-presentation-rules.md` — GTX / wizard interaction rules
+- `adapter-skin-registry-plan.md` — registries and rollout phases
+- `integration-thinui-workflow-prose-gtx.md` — cross-repo integration plan
 
 ## Rule
 

@@ -1,29 +1,15 @@
 # Workspace 06 Next Round
 
-## Purpose
+## Status
 
-This document records the next implementation targets for the current
-cross-surface themes expansion.
+**Workspace 06 (cursor-06) is closed** (2026-04-01). Canonical specs:
 
-## Required Follow-Up
+- `docs/display-modes.md`
+- `docs/theme-token-standard.md`
+- `docs/step-form-presentation-rules.md`
+- `docs/adapter-skin-registry-plan.md`
+- `docs/integration-thinui-workflow-prose-gtx.md`
 
-- turn the browser, TUI, workflow, publish, and forms adapters from starter
-  contracts into durable working modules
-- keep Tailwind Prose as the shared publish and docs baseline
-- keep the GTX-form flow usable as a step-by-step prototype
-- prove cross-surface primitive parity for button, loader, form-step, panel,
-  nav, and progress components
-- define the first skin-loader path for Sonic, Empire, Alpine, and Dev skins
-- add display-mode rules for guided full-viewport flows in GUI and TUI
+## Further implementation
 
-## Exit Evidence
-
-- one working ThinUI renderer pack
-- one working publish prose preset
-- one working GTX-form prototype
-- one cross-surface primitive mapping table
-
-## Rule
-
-Keep this as a compact implementation-facing reference. Deeper planning detail
-belongs in `@dev/`.
+See phases **C–E** in `docs/adapter-skin-registry-plan.md` and `docs/integration-thinui-workflow-prose-gtx.md`, and `@dev/next-round.md` in this repo.

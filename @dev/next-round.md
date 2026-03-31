@@ -1,26 +1,23 @@
 # Themes Next Round
 
-This note records what the next `uDOS-themes` round must deliver on top of the
-new scaffold.
-
 ## Target Round
 
-`cursor-06-themes-display-modes.code-workspace`
+Follow-on work after **cursor-06** closure (ongoing engineering, not a blocking lane):
 
-## Required Follow-Up
+## Completed in cursor-06 (baseline)
 
-- turn the browser, TUI, workflow, publish, and forms adapters from contract
-  stubs into working implementation modules
-- wire Tailwind Prose as the shared publish/docs baseline
-- build the first GTX-form prototype with step-by-step behavior
-- prove cross-surface primitive parity for button, loader, form-step, panel,
-  nav, and progress components
-- define the first skin-loader path for Sonic, Empire, Alpine, and Dev skins
-- add display-mode rules for guided full-viewport flows in GUI and TUI
+- Display modes, token standard, step-form rules, registry plan, integration plan docs
+- Skin loader, primitive map, GTX JSON + forms adapter, Node adapter smokes
+- Workspace web token load + sync script; ThinUI bridge + Shell TUI parity note
+- Reader hub: `uDOS-docs/docs/themes-and-display-modes.md`
 
-## Exit Evidence
+## Optional follow-up (phases C–E)
 
-- one working ThinUI renderer pack
-- one working publish prose preset
-- one working GTX-form prototype
-- one cross-surface primitive mapping table
+- **ThinUI hydration:** map `loadSkinBundle` / registry into resolver (see `docs/integration-thinui-workflow-prose-gtx.md`).
+- **Tailwind Prose preset:** shared package or config for workspace + static publish.
+- **Wizard / workflow:** align task ids with GTX step ids where useful.
+- **Shell CLI demo:** optional wrapper calling themes `renderTuiFormStep` for the canonical JSON.
+
+## Exit Evidence (cursor-06)
+
+Satisfied per `@dev/notes/rounds/cursor-06-themes-display-modes-2026-04-01.md`.

@@ -23,7 +23,12 @@ Canonical inventory for how uDOS surfaces present guided and narrative UI. Theme
 
 - `examples/cross-surface-rendering-matrix.json`
 - `docs/architecture.md`
+- `docs/theme-token-standard.md`
+- `docs/step-form-presentation-rules.md`
+- `docs/adapter-skin-registry-plan.md`
+- `docs/integration-thinui-workflow-prose-gtx.md`
 - `uDOS-thinui/docs/themes-sibling-bridge.md` (runtime vs registry boundary)
 - `uDOS-shell/docs/tui-themes-parity.md` (TUI ↔ themes adapters)
 - `uDOS-dev/docs/gui-system-family-contract.md`
 - `uDOS-dev/docs/cursor-focused-workspaces.md` § Workspace 06
+- `uDOS-docs/docs/themes-and-display-modes.md` (reader hub)
