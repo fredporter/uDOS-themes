@@ -6,7 +6,7 @@ Canonical inventory for how uDOS surfaces present guided and narrative UI. Theme
 
 | Mode | Typical surface | Owner repo | Themes adapter lane | Notes |
 | --- | --- | --- | --- | --- |
-| **Browser rich** | SvelteKit / web shell | `uDOS-workspace` | `browser-default` | Layout, hero, panels, Tailwind prose bridge |
+| **Browser rich** | SvelteKit / web shell | `uDOS-workspace` | `browser-default` | Layout, hero, panels, Tailwind prose bridge; shell CSS vars from `theme-tokens` in `apps/web/src/lib/theme/browserDefaultShell.ts` |
 | **ThinUI takeover** | Full-screen terminal frame | `uDOS-thinui` | `thinui-default` | Theme packs, teletext / retro loaders |
 | **TUI guided** | Full-viewport shell flows | `uDOS-shell` | `tui-default` | Step prompts, choice lists, progress line |
 | **Workflow board** | Lanes / tasks | `uDOS-wizard` (and workspace) | `workflow-default` | Binder-adjacent story, status columns |
