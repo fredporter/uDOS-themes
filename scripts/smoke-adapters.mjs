@@ -1,3 +1,4 @@
+import { loadSkinBundle } from "../src/load-skin.mjs";
 import { renderBrowserScreen } from "../src/adapters/browser/index.mjs";
 import { renderTuiScreen } from "../src/adapters/tui/index.mjs";
 import { buildWorkflowBoard, renderWorkflowText } from "../src/adapters/workflow/index.mjs";
@@ -81,6 +82,15 @@ const submitted = submitForm(form, {
 });
 if (!submitted.completed) {
   throw new Error("forms submit smoke failed");
+}
+
+const sonicSkin = loadSkinBundle("sonic-boot");
+if (sonicSkin.skin.overrides?.loader !== "c64-boot") {
+  throw new Error("load-skin sonic-boot smoke failed");
+}
+const devSkin = loadSkinBundle("dev-lab");
+if (devSkin.baseThemeId !== "workflow-default") {
+  throw new Error("load-skin dev-lab base theme smoke failed");
 }
 
 console.log("uDOS-themes adapter smokes passed");

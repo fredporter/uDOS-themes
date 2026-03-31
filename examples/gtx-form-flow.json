@@ -1,21 +1,25 @@
 {
   "id": "setup-story",
+  "title": "Runtime Setup Story",
   "adapter": "forms-gtx-step",
   "steps": [
     {
       "id": "runtime-name",
-      "type": "question",
-      "prompt": "Name this runtime."
+      "type": "input-field",
+      "prompt": "Name this runtime.",
+      "placeholder": "uDOS command centre"
     },
     {
       "id": "network-mode",
       "type": "choice-grid",
-      "prompt": "Choose network mode."
+      "prompt": "Choose the network mode.",
+      "choices": ["local-first", "lan-shared", "offline-safe"]
     },
     {
-      "id": "vault-source",
+      "id": "vault-root",
       "type": "input-field",
-      "prompt": "Where should the vault live?"
+      "prompt": "Where should the vault live?",
+      "placeholder": "~/.udos/vault"
     }
   ]
 }

@@ -78,6 +78,8 @@ require_file "$REPO_ROOT/docs/v2.2.1-integrated-design-system.md"
 require_file "$REPO_ROOT/docs/theme-upstream-index.md"
 require_file "$REPO_ROOT/docs/theme-fork-rollout.md"
 require_file "$REPO_ROOT/docs/workspace-06-next-round.md"
+require_file "$REPO_ROOT/docs/display-modes.md"
+require_file "$REPO_ROOT/src/load-skin.mjs"
 require_file "$REPO_ROOT/wiki/credits-and-inspiration.md"
 require_file "$REPO_ROOT/vendor/README.md"
 require_file "$REPO_ROOT/vendor/forks/README.md"
@@ -205,6 +207,18 @@ if not isinstance(form_flow.get("steps"), list) or len(form_flow["steps"]) < 3:
     raise SystemExit("examples/gtx-form-flow.json must define at least three form steps")
 if set(render_matrix.get("surfaces", [])) != {"browser", "thinui", "tui", "workflow", "publish", "forms"}:
     raise SystemExit("examples/cross-surface-rendering-matrix.json must define the required surfaces")
+
+required_primitives = render_matrix.get("required_primitives", [])
+pmap = render_matrix.get("primitive_surface_map", {})
+if set(pmap.keys()) != set(required_primitives):
+    raise SystemExit("examples/cross-surface-rendering-matrix.json primitive_surface_map keys must match required_primitives")
+surface_set = set(render_matrix["surfaces"])
+for prim, row in pmap.items():
+    if set(row.keys()) != surface_set:
+        raise SystemExit(f"examples/cross-surface-rendering-matrix.json primitive_surface_map[{prim}] must list every surface")
+    for _surf, adapter_id in row.items():
+        if adapter_id not in adapter_ids:
+            raise SystemExit(f"primitive_surface_map uses unknown adapter_id: {adapter_id}")
 PY
 
 if command -v rg >/dev/null 2>&1; then

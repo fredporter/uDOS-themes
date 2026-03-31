@@ -1,26 +1,19 @@
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 export function createGtxFormPrototype() {
+  const flowPath = path.resolve(__dirname, "../../../examples/gtx-form-flow.json");
+  const raw = JSON.parse(fs.readFileSync(flowPath, "utf8"));
+  if (!raw.id || !Array.isArray(raw.steps) || raw.steps.length < 3) {
+    throw new Error("createGtxFormPrototype: invalid examples/gtx-form-flow.json");
+  }
   return {
-    id: "runtime-setup-story",
-    title: "Runtime Setup Story",
-    steps: [
-      {
-        id: "runtime-name",
-        type: "input-field",
-        prompt: "Name this runtime.",
-        placeholder: "uDOS command centre",
-      },
-      {
-        id: "network-mode",
-        type: "choice-grid",
-        prompt: "Choose the network mode.",
-        choices: ["local-first", "lan-shared", "offline-safe"],
-      },
-      {
-        id: "vault-root",
-        type: "input-field",
-        prompt: "Where should the vault live?",
-        placeholder: "~/.udos/vault",
-      },
-    ],
+    id: raw.id,
+    title: raw.title ?? raw.id,
+    adapter: raw.adapter ?? "forms-gtx-step",
+    steps: raw.steps,
   };
 }
