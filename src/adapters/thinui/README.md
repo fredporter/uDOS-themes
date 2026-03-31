@@ -19,3 +19,7 @@ Boundary rule:
 
 - appearance and tokens live here
 - semantic state mutation never lives here
+
+## Upstream sources (forks)
+
+ThinUI visual families are normalised from third-party bases. See `docs/theme-upstream-index.md` for **c64css3**, **NES.css**, and **teletext** font repos, demos, and the target `adapters/thinui/` layout.

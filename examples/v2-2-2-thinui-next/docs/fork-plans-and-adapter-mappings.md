@@ -1,5 +1,7 @@
 # Fork Plans and Adapter Mappings — v2.2.1
 
+**Canonical integration forks:** `docs/theme-upstream-index.md` (four **fredporter** repos: c64css3, NES.css, svelte-notion-kit, bedstead). **GTX forms** are the `forms` adapter, not a fifth fork.
+
 ## Goal
 
 Convert external visual libraries into stable uDOS-compatible theme and UI assets without letting third-party structures become runtime truth.
@@ -92,6 +94,28 @@ Thinui utility panels and sonic-screwdriver graphical tools.
 - supported surfaces: `thinui`, `sonic-screwdriver`
 - default loaders: `binder-pulse`, `sync-scan`
 - default utility views: `tool-panel`, `status-card`, `selector-grid`
+
+## Fork 4 — bedstead / Teletext50 → thinui-teletext
+
+### Source role
+
+Teletext50 pixel font and CSS (SAA5050 / BBC Mode 7 style), maintained as **fredporter/bedstead** (from **glxxyz/bedstead**).
+
+### uDOS target role
+
+ThinUI teletext lane, TUI mosaic panels, deterministic grid render; **TeleText50** (text) vs **Teletext50** (mosaic) naming in product notes.
+
+### Refactor plan
+
+1. submodule **fredporter/bedstead** under `vendor/forks/bedstead`
+2. wire `@font-face` / CSS entrypoints from vendored or built woff2
+3. map mosaic + text rows into `thinui-teletext` tokens and view contracts
+4. keep CC0 / upstream `COPYING` visible in `vendor/fonts/` if binaries are copied out
+
+### Adapter output
+
+- adapter id: `thinui.teletext.v1` (align with existing `thinui-teletext` theme id)
+- supported surfaces: `thinui`, `tui`, publish fallbacks as needed
 
 ## Shared Adapter Rules
 

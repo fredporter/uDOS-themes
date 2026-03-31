@@ -30,3 +30,7 @@ Runtimes render appearance.
 - workflow/binder surfaces
 - publishing and email-safe output
 - GTX-form step flows
+
+## Third-party upstreams
+
+Fork targets, demo URLs, and teletext references: `theme-upstream-index.md`.

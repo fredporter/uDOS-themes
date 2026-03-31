@@ -75,7 +75,14 @@ require_file "$REPO_ROOT/examples/gtx-form-flow.json"
 require_file "$REPO_ROOT/examples/cross-surface-rendering-matrix.json"
 require_file "$REPO_ROOT/docs/v2.0.1-theme-foundation.md"
 require_file "$REPO_ROOT/docs/v2.2.1-integrated-design-system.md"
+require_file "$REPO_ROOT/docs/theme-upstream-index.md"
+require_file "$REPO_ROOT/docs/theme-fork-rollout.md"
 require_file "$REPO_ROOT/docs/workspace-06-next-round.md"
+require_file "$REPO_ROOT/wiki/credits-and-inspiration.md"
+require_file "$REPO_ROOT/vendor/README.md"
+require_file "$REPO_ROOT/vendor/forks/README.md"
+require_file "$REPO_ROOT/vendor/fonts/README.md"
+require_file "$REPO_ROOT/.gitmodules"
 
 python3 - <<'PY'
 import json

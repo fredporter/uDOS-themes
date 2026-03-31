@@ -23,6 +23,8 @@ Use `/wiki` for beginner-friendly learning units and quick practical guides.
 
 - `v2.0.1-theme-foundation.md`
 - `v2.2.1-integrated-design-system.md`
+- `theme-upstream-index.md` (third-party repos, demos, fork targets, teletext)
+- `theme-fork-rollout.md` (fork → submodule → adapter checklist)
 
 ## Rule
 

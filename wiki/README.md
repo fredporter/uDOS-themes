@@ -10,3 +10,9 @@ Use it for:
 - checklists and quick reference
 
 Use `/docs` for deeper reference.
+
+## Credits and upstreams
+
+- `credits-and-inspiration.md` — original authors, repos, demos, TeleText50 / Teletext50 teletext lanes, Petme note
+
+Rollout steps (forks, `vendor/`, adapters): `../docs/theme-fork-rollout.md`.

@@ -5,6 +5,7 @@
 Current script surfaces include:
 
 - `run-theme-checks.sh` for repo activation validation
+- `init-vendor-forks.sh` for `git submodule update --init` on `vendor/forks/*` (fredporter theme forks)
 - `smoke-adapters.mjs` for browser/TUI/workflow/publish/forms smoke coverage
 
 Boundary rule:
