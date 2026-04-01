@@ -1,5 +1,10 @@
-export const TAILWIND_PROSE_CLASSES =
-  "prose prose-slate prose-headings:font-semibold prose-a:text-[var(--udos-accent)] max-w-3xl";
+import tailwindProsePreset from "./tailwind-prose-preset.json" with { type: "json" };
+
+export const TAILWIND_PROSE_CLASSES = tailwindProsePreset.classes.article;
+
+export function getTailwindProsePreset() {
+  return tailwindProsePreset;
+}
 
 export function renderPublishPage({
   title,

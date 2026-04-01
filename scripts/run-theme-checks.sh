@@ -36,9 +36,11 @@ require_file "$REPO_ROOT/src/adapters/tui/index.mjs"
 require_file "$REPO_ROOT/src/adapters/workflow/README.md"
 require_file "$REPO_ROOT/src/adapters/workflow/adapter-contract.json"
 require_file "$REPO_ROOT/src/adapters/workflow/index.mjs"
+require_file "$REPO_ROOT/src/adapters/workflow/gtx-step-task-map.json"
 require_file "$REPO_ROOT/src/adapters/publish/README.md"
 require_file "$REPO_ROOT/src/adapters/publish/adapter-contract.json"
 require_file "$REPO_ROOT/src/adapters/publish/index.mjs"
+require_file "$REPO_ROOT/src/adapters/publish/tailwind-prose-preset.json"
 require_file "$REPO_ROOT/src/adapters/forms/README.md"
 require_file "$REPO_ROOT/src/adapters/forms/adapter-contract.json"
 require_file "$REPO_ROOT/src/adapters/forms/index.mjs"
@@ -67,6 +69,7 @@ require_file "$REPO_ROOT/registry/adapter-registry.json"
 require_file "$REPO_ROOT/registry/skin-registry.json"
 require_file "$REPO_ROOT/scripts/README.md"
 require_file "$REPO_ROOT/scripts/sync-theme-tokens-to-workspace.sh"
+require_file "$REPO_ROOT/scripts/sync-publish-prose-preset-to-workspace.sh"
 require_file "$REPO_ROOT/scripts/smoke-adapters.mjs"
 require_file "$REPO_ROOT/tests/README.md"
 require_file "$REPO_ROOT/config/README.md"
@@ -107,6 +110,8 @@ adapter_registry = json.loads((repo_root / "registry" / "adapter-registry.json")
 skin_registry = json.loads((repo_root / "registry" / "skin-registry.json").read_text(encoding="utf-8"))
 form_flow = json.loads((repo_root / "examples" / "gtx-form-flow.json").read_text(encoding="utf-8"))
 render_matrix = json.loads((repo_root / "examples" / "cross-surface-rendering-matrix.json").read_text(encoding="utf-8"))
+prose_preset = json.loads((repo_root / "src" / "adapters" / "publish" / "tailwind-prose-preset.json").read_text(encoding="utf-8"))
+workflow_gtx_map = json.loads((repo_root / "src" / "adapters" / "workflow" / "gtx-step-task-map.json").read_text(encoding="utf-8"))
 
 required = {"theme", "owner", "surface", "tokens"}
 for name, payload in {"src/theme-tokens.json": source, "examples/basic-theme.json": example}.items():
@@ -212,6 +217,29 @@ if not isinstance(form_flow.get("steps"), list) or len(form_flow["steps"]) < 3:
     raise SystemExit("examples/gtx-form-flow.json must define at least three form steps")
 if set(render_matrix.get("surfaces", [])) != {"browser", "thinui", "tui", "workflow", "publish", "forms"}:
     raise SystemExit("examples/cross-surface-rendering-matrix.json must define the required surfaces")
+
+if prose_preset.get("preset_id") != "prose-tailwind-default":
+    raise SystemExit("src/adapters/publish/tailwind-prose-preset.json preset_id must be prose-tailwind-default")
+if prose_preset.get("owner") != "uDOS-themes":
+    raise SystemExit("src/adapters/publish/tailwind-prose-preset.json owner must be uDOS-themes")
+article_classes = prose_preset.get("classes", {}).get("article", "")
+if not isinstance(article_classes, str) or "prose" not in article_classes.split():
+    raise SystemExit("src/adapters/publish/tailwind-prose-preset.json classes.article must include prose")
+
+if workflow_gtx_map.get("map_id") != "workflow-gtx-step-task-map":
+    raise SystemExit("src/adapters/workflow/gtx-step-task-map.json map_id must be workflow-gtx-step-task-map")
+if workflow_gtx_map.get("owner") != "uDOS-themes":
+    raise SystemExit("src/adapters/workflow/gtx-step-task-map.json owner must be uDOS-themes")
+gtx_steps = {step.get("id") for step in form_flow.get("steps", [])}
+map_entries = workflow_gtx_map.get("mappings", [])
+if not isinstance(map_entries, list) or not map_entries:
+    raise SystemExit("src/adapters/workflow/gtx-step-task-map.json mappings must be a non-empty array")
+mapped_steps = {entry.get("step_id") for entry in map_entries}
+if gtx_steps != mapped_steps:
+    raise SystemExit("src/adapters/workflow/gtx-step-task-map.json must cover all GTX step ids exactly")
+for entry in map_entries:
+    if not {"step_id", "task_id", "lane_id", "title"} <= set(entry.keys()):
+        raise SystemExit("workflow GTX map entries must include step_id, task_id, lane_id, title")
 
 required_primitives = render_matrix.get("required_primitives", [])
 pmap = render_matrix.get("primitive_surface_map", {})

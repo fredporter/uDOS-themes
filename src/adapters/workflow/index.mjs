@@ -22,6 +22,28 @@ export function buildWorkflowBoard({ title, lanes }) {
   };
 }
 
+export function buildWorkflowBoardFromGtxForm(formPrototype, options = {}) {
+  const laneId = options.laneId ?? "setup";
+  const laneTitle = options.laneTitle ?? "Setup";
+  const taskPrefix = options.taskPrefix ?? "gtx";
+
+  return buildWorkflowBoard({
+    title: options.title ?? `${formPrototype.title} workflow`,
+    lanes: [
+      {
+        id: laneId,
+        title: laneTitle,
+        tasks: (formPrototype.steps ?? []).map((step) => ({
+          id: `${taskPrefix}-${step.id}`,
+          title: step.prompt ?? step.id,
+          status: "todo",
+          summary: `gtx_step_id=${step.id}`,
+        })),
+      },
+    ],
+  });
+}
+
 export function renderWorkflowText(board) {
   const lines = [`Workflow: ${board.title}`];
   for (const lane of board.lanes) {

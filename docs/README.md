@@ -11,6 +11,8 @@ Use it for:
 
 Use `/wiki` for beginner-friendly learning units and quick practical guides.
 
+**Family checkout:** [`uDOS-dev/docs/family-documentation-layout.md`](../../uDOS-dev/docs/family-documentation-layout.md).
+
 ## Start Here
 
 - `getting-started.md`
