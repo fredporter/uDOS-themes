@@ -21,6 +21,10 @@ Use `/wiki` for beginner-friendly learning units and quick practical guides.
 - `boundary.md`
 - `examples.md`
 
+## Classic Modern MVP 0.1
+
+Pack index and **`--cm-*`** token spec: **`uDOS-docs/docs/classic-modern-mvp-0.1/README.md`** (sibling repo). ThinUI consumes the palette today as theme id **`udos-default`** (`uDOS-thinui/src/runtime/default-theme-resolver.ts`). This repo owns future CSS/token export and ThinUI skin adapters (`src/adapters/thinui/`).
+
 ## Core References
 
 - `v2.0.1-theme-foundation.md`
