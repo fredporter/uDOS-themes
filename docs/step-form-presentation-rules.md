@@ -12,6 +12,7 @@ Deliberate interaction design for guided setup, wizards, and narrative surfaces 
 
 - **GTX step model:** `examples/gtx-form-flow.json` — step `id`, `type` (`input-field`, `choice-grid`, …), `prompt`, optional `choices` / `placeholder`.
 - **Prototype API:** `src/adapters/forms/index.mjs` — `createGtxFormPrototype()`, `renderBrowserFormStep`, `renderThinUiFormStep`, `renderTuiFormStep`, `submitForm`.
+- **CLI demo:** `scripts/demo-gtx-form-tui.mjs` — prints `renderTuiFormStep` output for the canonical JSON (`node scripts/demo-gtx-form-tui.mjs` from repo root).
 
 ## Surface behaviour
 

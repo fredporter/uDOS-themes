@@ -17,15 +17,14 @@ Follow-on work after **cursor-06** closure (ongoing engineering, not a blocking 
   thinui-safe skin ids (`skin:<id>` and mirrored ids such as `sonic-boot`,
   `alpine-safe`) and maps them to base thinui theme ids without changing runtime
   loop ownership. Keep deeper token/loader metadata hydration optional.
-- **Tailwind Prose preset:** **phase-E tranche 1 done** — shared prose class
-  contract now lives at `src/adapters/publish/tailwind-prose-preset.json` and
-  syncs to workspace via `scripts/sync-publish-prose-preset-to-workspace.sh`.
-  Optional package-level Tailwind preset remains future work.
-- **Wizard / workflow:** **phase-D tranche 1 done** — canonical GTX step-id to
-  workflow task-id map now tracked in
-  `src/adapters/workflow/gtx-step-task-map.json`. Future lane: consume map
-  directly in Wizard workflow surfaces.
-- **Shell CLI demo:** optional wrapper calling themes `renderTuiFormStep` for the canonical JSON.
+- **Tailwind Prose preset:** **phase-E tranche 2 done (O1)** — same contract
+  syncs to `packages/tailwind-prose-preset` for `file:` npm consumption
+  (`scripts/sync-publish-prose-preset-to-package.sh`) in addition to the
+  workspace mirror.
+- **Wizard / workflow:** **phase-D tranche 2 done (O1)** — GTX map syncs to
+  `uDOS-wizard/apps/surface-ui/src/lib/contracts/gtx-step-task-map.json`;
+  Workflow surface resolves `step_id` → task metadata from the mirrored map.
+- **Shell CLI demo:** **done** — `scripts/demo-gtx-form-tui.mjs` prints `renderTuiFormStep` output for **`examples/gtx-form-flow.json`** (validated in `run-theme-checks.sh`).
 
 ## Exit Evidence (cursor-06)
 

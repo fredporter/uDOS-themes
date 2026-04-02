@@ -10,7 +10,7 @@ Cross-repo wiring for Workspace 06 exit criteria: one coherent story from tokens
 | **ThinUI ↔ themes** | `uDOS-thinui/docs/themes-sibling-bridge.md`, `scripts/print-themes-skin.mjs` | Documented boundary + diagnostic. |
 | **Themes adapters** | `uDOS-themes/src/adapters/*` | Node `.mjs` implementations + smoke; ThinUI TS adapters under `src/adapters/thinui/`. |
 | **Workflow** | `workflow-default` adapter + `gtx-step-task-map.json` | Text board prototype with explicit GTX step-id to workflow task-id mapping contract for Wizard/binder alignment. |
-| **Tailwind Prose** | `publish-tailwind-prose` adapter + `tailwind-prose-preset.json` | Emits `prose` class strings + HTML and now ships a shared machine-readable preset mirrored into workspace theme assets. |
+| **Tailwind Prose** | `publish-tailwind-prose` adapter + `tailwind-prose-preset.json` | Emits `prose` class strings + HTML and ships a shared machine-readable preset mirrored into workspace assets and into `packages/tailwind-prose-preset` for `file:` npm installs. |
 | **GTX forms** | `examples/gtx-form-flow.json` + `forms` adapter | Canonical step flow + multi-surface renderers. |
 | **Workspace web** | `browserDefaultShell.ts` + `theme-tokens.json` | CSS vars from JSON; sync script from themes repo. |
 
@@ -32,9 +32,9 @@ flowchart LR
 ## Integration steps (prioritised)
 
 1. **ThinUI (phase C):** Optional import path: resolve `skin_id` → `loadSkinBundle` output → map `overrides.loader` to existing loader ids in resolver. No change to view loop ownership.
-2. **Tailwind Prose:** Phase-E tranche 1 complete: shared class list contract at `uDOS-themes/src/adapters/publish/tailwind-prose-preset.json`, mirrored to workspace via `scripts/sync-publish-prose-preset-to-workspace.sh`. Optional future step: npm/tailwind preset package.
-3. **Workflow:** Phase-D tranche 1 complete: `src/adapters/workflow/gtx-step-task-map.json` now defines canonical step-id → task-id mapping against `examples/gtx-form-flow.json`. Future wiring can consume this map directly in Wizard surfaces.
-4. **GTX in Shell:** Optional Node/TS wrapper that reads the same JSON and prints `renderTuiFormStep` output for CLI demos (reuse `uDOS-themes` as devDependency or sibling exec).
+2. **Tailwind Prose:** Phase-E tranche 2 (post-O1): package path at `uDOS-themes/packages/tailwind-prose-preset` (sync via `scripts/sync-publish-prose-preset-to-package.sh`); workspace mirror unchanged (`sync-publish-prose-preset-to-workspace.sh`).
+3. **Workflow:** Phase-D tranche 2 (post-O1): Wizard Surface UI mirrors `gtx-step-task-map.json` under `apps/surface-ui/src/lib/contracts/` (sync via `scripts/sync-gtx-step-task-map-to-wizard.sh`) and the workflow panel resolves the active `step_id` against that map for operator-visible task alignment.
+4. **GTX in Shell:** **`scripts/demo-gtx-form-tui.mjs`** — run from `uDOS-themes` root: `node scripts/demo-gtx-form-tui.mjs` (defaults to **`examples/gtx-form-flow.json`**; `--step`, `--step-id`, `--json`, `--all`). Uses `renderTuiFormStep` from the forms adapter.
 
 ## Contracts not duplicated
 

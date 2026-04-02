@@ -70,7 +70,13 @@ require_file "$REPO_ROOT/registry/skin-registry.json"
 require_file "$REPO_ROOT/scripts/README.md"
 require_file "$REPO_ROOT/scripts/sync-theme-tokens-to-workspace.sh"
 require_file "$REPO_ROOT/scripts/sync-publish-prose-preset-to-workspace.sh"
+require_file "$REPO_ROOT/scripts/sync-publish-prose-preset-to-package.sh"
+require_file "$REPO_ROOT/scripts/sync-gtx-step-task-map-to-wizard.sh"
 require_file "$REPO_ROOT/scripts/smoke-adapters.mjs"
+require_file "$REPO_ROOT/scripts/demo-gtx-form-tui.mjs"
+require_file "$REPO_ROOT/packages/tailwind-prose-preset/package.json"
+require_file "$REPO_ROOT/packages/tailwind-prose-preset/README.md"
+require_file "$REPO_ROOT/packages/tailwind-prose-preset/tailwind-prose-preset.json"
 require_file "$REPO_ROOT/tests/README.md"
 require_file "$REPO_ROOT/config/README.md"
 require_file "$REPO_ROOT/examples/README.md"
@@ -111,6 +117,7 @@ skin_registry = json.loads((repo_root / "registry" / "skin-registry.json").read_
 form_flow = json.loads((repo_root / "examples" / "gtx-form-flow.json").read_text(encoding="utf-8"))
 render_matrix = json.loads((repo_root / "examples" / "cross-surface-rendering-matrix.json").read_text(encoding="utf-8"))
 prose_preset = json.loads((repo_root / "src" / "adapters" / "publish" / "tailwind-prose-preset.json").read_text(encoding="utf-8"))
+prose_preset_pkg = json.loads((repo_root / "packages" / "tailwind-prose-preset" / "tailwind-prose-preset.json").read_text(encoding="utf-8"))
 workflow_gtx_map = json.loads((repo_root / "src" / "adapters" / "workflow" / "gtx-step-task-map.json").read_text(encoding="utf-8"))
 
 required = {"theme", "owner", "surface", "tokens"}
@@ -218,6 +225,9 @@ if not isinstance(form_flow.get("steps"), list) or len(form_flow["steps"]) < 3:
 if set(render_matrix.get("surfaces", [])) != {"browser", "thinui", "tui", "workflow", "publish", "forms"}:
     raise SystemExit("examples/cross-surface-rendering-matrix.json must define the required surfaces")
 
+if prose_preset != prose_preset_pkg:
+    raise SystemExit("packages/tailwind-prose-preset/tailwind-prose-preset.json must match src/adapters/publish/tailwind-prose-preset.json")
+
 if prose_preset.get("preset_id") != "prose-tailwind-default":
     raise SystemExit("src/adapters/publish/tailwind-prose-preset.json preset_id must be prose-tailwind-default")
 if prose_preset.get("owner") != "uDOS-themes":
@@ -280,6 +290,16 @@ fi
 
 if command -v node >/dev/null 2>&1; then
   node "$REPO_ROOT/scripts/smoke-adapters.mjs" >/dev/null
+  DEMO_OUT="$(node "$REPO_ROOT/scripts/demo-gtx-form-tui.mjs" --step 0)"
+  if ! echo "$DEMO_OUT" | grep -q "Runtime Setup Story"; then
+    echo "demo-gtx-form-tui.mjs --step 0 did not emit expected title" >&2
+    exit 1
+  fi
+  DEMO_ALL="$(node "$REPO_ROOT/scripts/demo-gtx-form-tui.mjs" --all)"
+  if ! echo "$DEMO_ALL" | grep -q "~/.udos/vault"; then
+    echo "demo-gtx-form-tui.mjs --all did not emit vault placeholder" >&2
+    exit 1
+  fi
 fi
 
 echo "uDOS-themes checks passed"
